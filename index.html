@@ -57,7 +57,7 @@
         var scene = null;
         var sceneToRender = null;
         var createDefaultEngine = function () { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: false }); };
-        const createScene = async function () {
+        const createScene = function () {
 
             const scene = new BABYLON.Scene(engine);
 
@@ -69,14 +69,14 @@
                  camera.attachControl(canvas, true);
             
             
-    const xr = await scene.createDefaultXRExperienceAsync({
-        disableTeleportation: true
+    const xr = scene.createDefaultXRExperienceAsync({
+      
     });
-            const featureManager = xr.baseExperience.featuresManager;
+           // const featureManager = xr.baseExperience.featuresManager;
 
-            featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
-              xrInput: xr.input,
-            });
+            // featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
+            //  xrInput: xr.input,
+            // });
             const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
             const walk = function (turn, dist) {
